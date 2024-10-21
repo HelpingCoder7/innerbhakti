@@ -23,7 +23,7 @@ class SongsBloc extends Bloc<SongsEvent, SongsState> {
     emit(songloading());
     List<SongUiModel> songs = [];
     try {
-      var uri = Uri.http('10.0.2.2:3000', '/fetchsong');
+      var uri = Uri.parse('https://innerserver.onrender.com/fetchsong');
       var response = await http.get(uri);
 
       if (response.statusCode == 200) {

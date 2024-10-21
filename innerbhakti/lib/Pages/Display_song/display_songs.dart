@@ -55,6 +55,10 @@ class _DisplayScreenState extends State<DisplayScreen> {
             body: SingleChildScrollView(
               child: Column(
                 children: [
+                  const Text(
+                    'Programs',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  ),
                   const SizedBox(height: 12),
                   SizedBox(
                     height: 200,
@@ -74,29 +78,34 @@ class _DisplayScreenState extends State<DisplayScreen> {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Stack(
-                                fit: StackFit.passthrough,
-                                children: [
-                                  Image.memory(
-                                    const Base64Decoder().convert(base64Image),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 110),
-                                    child: Center(
-                                      child: Text(
-                                        song.songName ?? 'Song Name',
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
+                            child: SizedBox(
+                              height: 50,
+                              width: 150,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Stack(
+                                  fit: StackFit.passthrough,
+                                  children: [
+                                    Image.memory(
+                                      const Base64Decoder()
+                                          .convert(base64Image),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 110),
+                                      child: Center(
+                                        child: Text(
+                                          song.songName ?? 'Song Name',
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -137,30 +146,34 @@ class _DisplayScreenState extends State<DisplayScreen> {
                             BlocProvider.of<SongsBloc>(context)
                                 .add(MoveToSongsDetailsPageEvent(song));
                           },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Stack(
-                              fit: StackFit.loose,
-                              children: [
-                                Image.memory(
-                                  const Base64Decoder().convert(base64Image),
-                                  fit: BoxFit.contain,
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 110, left: 0),
-                                  child: Center(
-                                    child: Text(
-                                      song.songName ?? '',
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                          child: SizedBox(
+                            height: 50,
+                            width: 80,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Stack(
+                                fit: StackFit.passthrough,
+                                children: [
+                                  Image.memory(
+                                    const Base64Decoder().convert(base64Image),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 110, left: 0),
+                                    child: Center(
+                                      child: Text(
+                                        song.songName ?? '',
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
